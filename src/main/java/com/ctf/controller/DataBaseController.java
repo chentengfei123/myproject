@@ -19,7 +19,17 @@ public class DataBaseController {
     @RequestMapping("testMybatis")
     public Map<String,Object> testMybatis(){
         Map<String,Object> resultMap=new HashMap<>();
-         resultMap.put("ataDict",dataDictMapper.getAll());
+         resultMap.put("dataDict",dataDictMapper.getAll());
          return resultMap;
+    }
+
+    /**
+     * myBatis接口绑定
+     */
+    @RequestMapping("/getById")
+    public Map<String,Object> getById( int id){
+        Map<String,Object> resultMap=new HashMap<>();
+        resultMap.put("dataDict",dataDictMapper.getById(id));
+        return resultMap;
     }
 }
