@@ -6,4 +6,7 @@
   <select id="getById" parameterType="int" resultType="com.ctf.vo.DataDict">
         select * from ga_data_dict where key_id=#{id}
     </select>
+    <select id="getByDictId" parameterType="String" resultType="com.ctf.vo.DataDict">
+        select * from ga_data_dict where dict_id=#{dictId}
+    </select>
 </mapper>
