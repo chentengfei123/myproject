@@ -3,10 +3,10 @@ package com.ctf.controller;
 import com.ctf.entity.DataDict;
 import com.ctf.jpa.DataDictJpa;
 import com.ctf.mapper.DataDictMapper;
+import com.ctf.service.ProjectDomainService;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
@@ -24,6 +24,9 @@ public class DataBaseController {
 
     @Autowired
     private DataDictJpa dataDictJpa;
+
+    @Autowired
+    private ProjectDomainService projectDomainService;
     /**
      * 整合mybatis 测试
      */
@@ -58,6 +61,10 @@ public class DataBaseController {
     /**
      * myBatis事务，批量更新、批量插入
      */
+    public Map<String,Object> testTransaction(){
+
+        return null;
+    }
 
     /**
      * myBatis分页
@@ -96,4 +103,10 @@ public class DataBaseController {
      *
      * jpa事务、自动更新、批量更新、批量插入
      */
+    @ResponseBody
+    @RequestMapping(value = "/testJpaTransaction",method = RequestMethod.POST)
+    public Map<String,Object> testJpaTransaction(@RequestBody DataDict dataDict){
+        projectDomainService.saveDataDict(dataDict);
+        return null;
+    }
 }
