@@ -109,4 +109,21 @@ public class DataBaseController {
         projectDomainService.saveDataDict(dataDict);
         return null;
     }
+
+    /**
+     * jpa 更新
+     */
+    @RequestMapping("/testJpaUpdate")
+    public Map<String,Object> testJpaUpdate(){
+        dataDictJpa.updateByKeyId(30002);
+        return null;
+    }
+
+    /**
+     * jpa分页、排序
+     */
+    @RequestMapping("testJpaPageAndSort")
+    public List<DataDict> testJpaPageAndSort(){
+        return projectDomainService.byJpaPageAndSort();
+    }
 }
