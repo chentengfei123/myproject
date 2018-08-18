@@ -107,4 +107,20 @@ public class DataDict {
     public void setUpdaterId(String updaterId) {
         this.updaterId = updaterId;
     }
+
+    @Override
+    public String toString() {
+        return "DataDict{" +
+                "keyId=" + keyId +
+                ", dictId='" + dictId + '\'' +
+                ", dictName='" + dictName + '\'' +
+                ", dictItemId='" + dictItemId + '\'' +
+                ", dictItemName='" + dictItemName + '\'' +
+                ", deleteFlg='" + deleteFlg + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                ", createrId='" + createrId + '\'' +
+                ", updaterId='" + updaterId + '\'' +
+                '}';
+    }
 }
